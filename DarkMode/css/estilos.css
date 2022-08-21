@@ -13,7 +13,7 @@
 
 body {
 	/* background: #ccd1d5; */
-	background: #252f3f;
+	background: #141a24;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -201,13 +201,13 @@ hr.style14 {
     margin: 2px 10px;
     width: 200px;
     padding: 10px 0;
-    box-shadow: 0 0 10px #2c384d;
+    box-shadow: 0 0 10px #1b2330;
     transition: 0.4s;
   }
   
   .registrar {
     color: white;
-    background-color: #202938;
+    background-color: #1b2330;
   }
   
   .login {
