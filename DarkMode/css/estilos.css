@@ -13,7 +13,7 @@
 
 body {
 	/* background: #ccd1d5; */
-	background: #2a2c31;
+	background: #252f3f;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -201,26 +201,26 @@ hr.style14 {
     margin: 2px 10px;
     width: 200px;
     padding: 10px 0;
-    box-shadow: 0 0 10px #1a6e8639;
+    box-shadow: 0 0 10px #2c384d;
     transition: 0.4s;
   }
   
   .registrar {
     color: white;
-    background-color: #292b30;
+    background-color: #202938;
   }
   
   .login {
     color: #2f3238;
     background-color: rgba(255, 255, 255, 1);
-    border: 1px solid #46484e;
+    border: 1px solid #202938;
   }
   
   button:hover {
     color: white;
     width:200px;
     box-shadow: 0 0 10px #46484e;
-    background-color: #292b30;
+    background-color: #202938;
   }
   
 
