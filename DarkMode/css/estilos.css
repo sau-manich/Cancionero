@@ -201,13 +201,13 @@ hr.style14 {
     margin: 2px 10px;
     width: 200px;
     padding: 10px 0;
-    box-shadow: 0 0 10px #1b2330;
+    box-shadow: 0 0 10px #1e2735;
     transition: 0.4s;
   }
   
   .registrar {
     color: white;
-    background-color: #1b2330;
+    background-color: #1e2735;
   }
   
   .login {
