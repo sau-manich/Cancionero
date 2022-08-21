@@ -1,8 +1,8 @@
 :root {
-	--primario: #1a6e864d;
+	--primario: #1a6e86;
 	--gris-claro: #B8B8B8;
-	--sombra: 0 0 13px 0 rgba(185, 185, 185, 0.089);
-	--sombraContent: 0 0 13px 0 rgba(185, 185, 185, 0.075);
+	--sombra: 0 0 13px 0 rgba(185, 185, 185, 0.822);
+	--sombraContent: 0 0 13px 0 rgba(185, 185, 185, 0.438);
 }
 
 * {
@@ -13,7 +13,7 @@
 
 body {
 	/* background: #ccd1d5; */
-	background: #141a24;
+	background: #f1f2f3;
 	font-family: 'Roboto', sans-serif;
 }
 
@@ -26,7 +26,7 @@ main {
 .titulo {
 	/* color: #ffffff; */
 	/* color: #605f5f; */
-	color: #dddddd;
+	color: #062a42;
 	font-weight: 700;
 	text-align: center;
 	margin: 50px 0;
@@ -34,18 +34,10 @@ main {
 
 .subTitulo {
 	/* color: #ffffff; */
-	color: #cecccc;
+	color: #aba6a6;
 	font-weight: 700;
 	text-align: center;
 	margin: 40px 0;
-}
-
-.subTituloMenu {
-	/* color: #ffffff; */
-	color: #cecccc;
-	font-weight: 700;
-	text-align: center;
-	margin: 0px 0px;
 }
 
 hr.style14 { 
@@ -124,8 +116,7 @@ hr.style14 {
 }
 
 .contenedor-pregunta {
-	background: #1e2735;
-	color: #b8b5b5;
+	background: #fff;
 	padding: 40px;
 	border: 2px solid transparent;
 	border-radius: 10px;
@@ -140,7 +131,7 @@ hr.style14 {
 }
 
 .contenedor-pregunta.activa {
-	border: 2px solid #b8b5b581;
+	border: 2px solid var(--primario);
 }
 
 /*! =================================================*/
@@ -189,7 +180,7 @@ hr.style14 {
   }
   
   .container div > h6 span {
-    color: #46484e;
+    color: #062a42;
   }
   
   
@@ -201,26 +192,26 @@ hr.style14 {
     margin: 2px 10px;
     width: 200px;
     padding: 10px 0;
-    box-shadow: 0 0 10px #1e2735;
+    box-shadow: 0 0 10px #1a6e8639;
     transition: 0.4s;
   }
   
   .registrar {
     color: white;
-    background-color: #1e2735;
+    background-color: #062a42;
   }
   
   .login {
-    color: #2f3238;
+    color: #062a42;
     background-color: rgba(255, 255, 255, 1);
-    border: 1px solid #202938;
+    border: 1px solid #062a42;
   }
   
   button:hover {
     color: white;
     width:200px;
-    box-shadow: 0 0 10px #46484e;
-    background-color: #202938;
+    box-shadow: 0 0 10px #06395a;
+    background-color: #0c3652;
   }
   
 
