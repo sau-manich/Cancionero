@@ -235,7 +235,7 @@ hr.style14 {
     list-style: none;
     font-weight: 600;
     color: #ffffff;
-    text-align: center;
+    /* text-align: center; */
 }
 li{
     margin: 5px 0;
