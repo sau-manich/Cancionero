@@ -30,7 +30,7 @@
   transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 .search-box.active{
-  width: 200px;
+  width: 210px;
 }
 .search-box input{
   width: 100%;
