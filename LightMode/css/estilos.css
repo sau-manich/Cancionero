@@ -214,6 +214,26 @@ hr.style14 {
     background-color: #0c3652;
   }
   
+/*! =================================================*/
+/*! ============= Buscador========================== */
+/*! =================================================*/
+
+
+#listaBusqueda{
+    /* font-size: 30px; */
+    /* margin-top: 20px; */
+    list-style: none;
+    font-weight: 600;
+    /* color: #ffffff; */
+    text-align: center;
+}
+li{
+    margin: 5px 0;
+}
+
+.filtro{
+    display: none;
+}
 
 
 /*! =================================================*/
