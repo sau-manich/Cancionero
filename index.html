@@ -53,16 +53,21 @@
 				<img src="DarkMode/img/LogoCancioneroIATec.png" width="60px" alt="" style="margin-top: -20px;"></span>
 			  <!-- <span class="text-3xl sm:text-4xl text-green-500 font-medium">Cancionero <br>IATec</span> -->
 			  <span class="text-lg sm:text-xl text-gray-800 font-medium">Cancionero <br> <center>IATec</center></span>
+			  
+			<form id="loginForm" name="loginForm" method="POST">
 			  <!-- <p class="text-sm sm:text-base text-gray-100 leading-tight">Acceso administrador</p> -->
 			  <div class="buscador"  style="margin-top: 8px;">
 				<div class="search-box">
-					<input type="text" placeholder="Email IATec">
-					<a href="Admin/index.html">
+					
+					<input id="user" type="text" name="user" required data-msg="Porfavor ingrese su email" placeholder="Email IATec">
+					<button type="submit" id="login">
+					<a>
 					  <div class="search-icon">
 					  <i class="fas fa-user"></i>
 					  </div>
 					</a>
-					  <div class="cancel-icon">
+				</button>
+					  <div class="cancel-icon" >
 					  <!-- <i class="fas fa-times"></i> -->
 					</div>
 					  <!-- <div class="search-data">
@@ -70,6 +75,7 @@
 				</div>
 				<p class="text-sm sm:text-base text-gray-100 leading-tight" style="margin-top: 10px;">Acceso administrador</p>
 			</div>
+		</form>
 			</div>
 		  </div>
 		</section>
@@ -84,6 +90,23 @@
 		  </a>
 		</section>
 	  </main>
+	  <!-- <div class="col-lg-6">
+		<div class="form d-flex align-items-center">
+		  <div class="content">
+			<form id="loginForm" name="loginForm" method="POST" class="form-validate mb-4">
+			  <div class="form-group">
+				<input id="user" type="text" name="user" required data-msg="Porfavor ingrese su email" class="input-material">
+				<label for="login-username" class="label-material">Email</label>
+			  </div>
+			  <div class="form-group">
+				<input id="password" type="password" name="passwords" required data-msg="Porfavor ingrese su contraseña" class="input-material">
+				<label for="login-password" class="label-material">Contraseña</label>
+			  </div>
+			  <button type="submit" id="login" value="Logga in" class="btn btn-primary">Ingresar</button>
+			</form><a href="#" class="forgot-pass">¿ Olvidaste tu contraseña ?</a><br><small>Solo la Unidad de Sistemas podra tener acceso </small>
+		  </div>
+		</div>
+	  </div> -->
 	  <script>
         const searchBox = document.querySelector(".search-box");
         const searchBtn = document.querySelector(".search-icon");
@@ -119,5 +142,25 @@
           searchInput.value = "";
         }
       </script>
+
+	  <script>
+		window.onload = function(){
+		document.getElementById("loginForm").onsubmit = function() {
+			//spara username och password i tvÃƒÂ¥ varibler med samma namn frÃƒÂ¥n formet.
+			var username = document.getElementById("user").value;
+			// var password = document.getElementById("password").value;
+
+			if (username === "saul.mamani@iatec.com" || username === "samuel.cari@iatec.com" || username === "joel.bazan@iatec.com") {
+				alert("Validación exitosa");
+			location.href = "Admin/index.html";
+			} else {
+			alert("Fallo la validación");
+			//location.href = "index1.html";
+			}
+			// to prevent submit
+			return false;
+		}
+		}
+	  </script>
 </body>
 </html>
