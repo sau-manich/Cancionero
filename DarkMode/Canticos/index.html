@@ -13,6 +13,7 @@
   />
 	<title>Cancionero IATec</title>
 	<script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 </head>
 <body>
 	<main>
@@ -112,23 +113,24 @@
 		<div class="contenedor-pregunta resultadoBusqueda">
                     <p class="pregunta">Mi pastor  <img src="../img/suma.svg" alt="Abrir Respuesta" /></p>
                     <p class="respuesta">
+		       <span class="dc-cifra">Am</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="dc-cifra">A</span> &nbsp;
                        Contigo ando muy seguro, <br>
                        el mal alejas con amor. <br>
-                      Soy una oveja y procuro <br>
+                       Soy una oveja y procuro <br>
                        los cuidados del pastor.  <br> <br>
                       
                       Y si yo ando en valle de sombra y de muerte,  <br>
                       por el valle de sombra y de muerte,  <br>
-                       no temeré ningún mal, <br> <br>
+                      no temeré ningún mal, <br> <br>
 			    
                       Pues sé que donde yo esté tu bondad me seguirá,  <br>
-			 donde esté tu bondad me seguirá,   <br>
-			tu bendición me darás. <br> <br>    
+		      donde esté tu bondad me seguirá,   <br>
+		      tu bendición me darás. <br> <br>    
                       
                       Mi pastor me lleva a lugares altos, <br>
                       agua limpia beberé. <br>
-                     Y en pastos verdes descansaré, <br>
-                     la jornada seguiré con Él.  <br> <br></p>
+                      Y en pastos verdes descansaré, <br>
+                      la jornada seguiré con Él.  <br> <br></p>
                 </div>
             </div>
         </div>
@@ -190,5 +192,281 @@
     }
   })
 </script>
+	
+	<script>
+		/* dynamic chords 
+/* by Eric T. Januzzi 
+*/
+escalas = [];
+numeroVerificador=0;
+acordes = ['A', 'A#-Bb', 'B', 'C', 'C#-Db', 'D', 'D#-Eb', 'E', 'F', 'F#-Gb','G','G#-Ab'];
+//<\s*[a-zA-Z]\s*[^>]*class=[^>]*dc-cifra[^>]*[^>]*>(.*?)<\s*/\s*[a-zA-Z]>
+
+escalas['A'] = ['A', 'B', 'C#', 'D', 'E', 'F#', 'G#'];
+escalas['A#'] = ['A#', 'C', 'D', 'Eb', 'F', 'G', 'A'];
+escalas['Bb'] = ['Bb', 'C', 'D', 'Eb', 'F', 'Gb', 'A'];
+escalas['B'] = ['B', 'C#', 'D#', 'E', 'F#', 'G#', 'A#'];
+escalas['C'] = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+escalas['C#'] = ['C#', 'D#', 'F', 'F#', 'G#', 'A#', 'C'];
+escalas['Db'] = ['Db', 'Eb', 'F', 'Gb', 'Ab', 'Bb', 'C'];
+escalas['D'] = ['D', 'E', 'F#', 'G', 'A', 'B', 'C#'];
+escalas['D#'] = ['D#', 'F', 'G', 'G#', 'A#', 'C', 'D'];
+escalas['Eb'] = ['Eb', 'F', 'G', 'Ab', 'Bb', 'C', 'D'];
+escalas['E'] = ['E', 'F#', 'G#', 'A', 'B', 'C#', 'D#'];
+escalas['F'] = ['F', 'G', 'A', 'Bb', 'C', 'D', 'E'];
+escalas['F#'] = ['F#', 'G#', 'A#', 'B', 'C#', 'D#', 'F'];
+escalas['Gb'] = ['Gb', 'Ab', 'Bb', 'B', 'Db', 'Eb', 'F'];
+escalas['G'] = ['G', 'A', 'B', 'C', 'D', 'E', 'F#'];
+escalas['G#'] = ['G#', 'A#', 'C', 'C#', 'D#', 'F', 'G'];
+escalas['Ab'] = ['Ab', 'Bb', 'C', 'Db', 'Eb', 'F', 'G'];
+
+escalas['Abm'] = ['Ab', 'Bb', 'B', 'Db', 'Eb', 'E', 'Gb'];
+escalas['Am'] = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+escalas['A#m'] = ['A#', 'C', 'C#', 'D#', 'F', 'F#', 'G#'];
+escalas['Bbm'] = ['Bb', 'C', 'Db', 'Eb', 'F', 'Gb', 'Ab'];
+escalas['Bm'] = ['B', 'C#', 'D', 'E', 'F#', 'G', 'A'];
+escalas['Cm'] = ['C', 'D', 'Eb', 'F', 'G', 'Ab', 'Bb'];
+escalas['C#m'] = ['C#', 'D#', 'E', 'F#', 'G#', 'A', 'B'];
+escalas['Dbm'] = ['Db', 'Eb', 'E', 'F#', 'G#', 'A', 'B'];
+escalas['Dm'] = ['D', 'E', 'F', 'G', 'A', 'Bb', 'C'];
+escalas['D#m'] = ['D#', 'F', 'Gb', 'Ab', 'Bb', 'B', 'Db'];
+escalas['Ebm'] = ['Eb', 'F', 'Gb', 'Ab', 'Bb', 'B', 'Db'];
+escalas['Em'] = ['E', 'F#', 'G', 'A', 'B', 'C', 'D'];
+escalas['Fm'] = ['F', 'G', 'Ab', 'Bb', 'C', 'Db', 'Eb'];
+escalas['F#m'] = ['F#', 'G#', 'A', 'B', 'C#', 'D', 'E'];
+escalas['Gbm'] = ['Gb', 'Ab', 'A', 'B', 'C#', 'D', 'E'];
+escalas['Gm'] = ['G', 'A', 'Bb', 'C', 'D', 'Eb', 'F'];
+escalas['G#m'] = ['G#', 'A#', 'B', 'C#', 'D#', 'E', 'F#'];
+
+tomOriginal = pegarTomPrincipal();
+
+//var res = str.replace(regex, "red");
+function modificaAcordesDaMusica(modifica='descer') {
+  var conteudo = document.querySelector('.dc-musica').innerHTML; 
+  const regex = /<\s*[a-zA-Z]\s*[^>]*class=[^>]*dc-cifra[^>]*[^>]*>(.*?)<\s*\/\s*[a-zA-Z]*>/g;
+
+  let ocorrenciasAcordes = [...conteudo.matchAll(regex)];
+  var conteudoNovoTom = conteudo;
+
+  array2 = ocorrenciasAcordes.map(function(item) {
+     //console.log(item)
+     let tag = item[0];
+     let acorde = item[1];
+    
+      if(acorde.substr(1,1)=="#" || acorde.substr(1,1)=="b") {
+          var substitui = acorde.substr(0, 2);
+          var mantem = acorde.substr(2, 5);
+      } else {
+          var substitui = acorde.substr(0, 1);
+          var mantem = acorde.substr(1, 5);
+      }
+
+      
+    //console.log('substitui:'+substitui);
+    if(modifica=='subir') {
+      var nt = subirTom(substitui, 'secundario');
+    } 
+    if(modifica=='descer') {
+      var nt = descerTom(substitui, 'secundario');
+    }
+
+    //console.log('novo tom:'+nt);
+    
+    var completo = nt+mantem;
+     //console.log('completo:'+completo);
+     
+     var novaTag = tag.replace(/>[ABCDEFG][b\#]*(.)*</g, '>'+completo+'<')
+      
+     conteudoNovoTom = conteudoNovoTom.replace(tag, novaTag); 
+  })
+  
+  document.querySelector('.dc-musica').innerHTML = conteudoNovoTom;
+}
+
+function atualizaNumero(num) {
+      document.querySelector('.numero').innerHTML = num;
+}
+function descerTomGeral() {
+  btSobeHabilita();
+  numeroVerificador-=1;
+  atualizaNumero(numeroVerificador);
+  var tomPrincipal = pegarTomPrincipal();
+  var complemento = pegarComplementoTomPrincipal();
+  console.log(tomPrincipal)
+  var novoTomPrincipal = descerTom(tomPrincipal, 'principal', complemento);
+  novoTomPrincipal = novoTomPrincipal + complemento;
+  novoTomPrincipal = novoTomPrincipal.trim();
+  console.log(novoTomPrincipal);
+  setNovoTom(novoTomPrincipal);
+  modificaAcordesDaMusica('descer');
+    if(numeroVerificador>-12) {
+    btDesceHabilita();
+  } else {
+    btDesceDesabilita();
+  }
+}
+
+function descerTom(tomAtual, tipo='principal') {
+   var novaPosicao;
+    var posicao = getPosicao(tomAtual);
+    var tamanho = acordes.length;
+    if(posicao==0) {
+      novaPosicao = tamanho-1;
+    } else {
+      novaPosicao = posicao - 1;
+    }
+    var novoTom = acordes[novaPosicao];
+
+    if(novoTom.includes('-')) {
+      let conj = novoTom.split("-");
+      if(tipo=='principal') {
+        if(conj.includes(tomOriginal)) {
+          return tomOriginal;
+        } else {
+          if(numeroVerificador>0)
+            return conj[0];
+          else 
+            return conj[1]; 
+        } 
+      } else {
+        var tomPrincipal = pegarTomPrincipal();
+        console.log("tomPrincipal: "+tomPrincipal);
+        console.log("tomSecundario: "+conj);
+        if(escalas[tomPrincipal].includes(conj[1])) {
+          return conj[1];
+        } else {
+          return conj[0];
+        }
+      }
+    }  
+     else {
+      return novoTom;
+    }
+
+}
+function btDesceDesabilita() {
+   document.getElementById('btnDescerTom').disabled = true;
+}
+
+function btDesceHabilita() {
+  document.getElementById('btnDescerTom').disabled = false;
+}
+
+function btSobeDesabilita() {
+   document.getElementById('btnSubirTom').disabled = true;
+}
+
+function btSobeHabilita() {
+  document.getElementById('btnSubirTom').disabled = false;
+}
+
+function setNovoTom(novoTom) {
+  document.querySelector('.dc-tonalidade').innerHTML = novoTom;
+}
+
+function desceTodosTons() {
+   var acordes = document.querySelector('.dc-cifra')
+}
+
+function getPosicao(tomPrincipal) {
+    var posicao;
+    acordes.forEach(function(item, index) {
+      if(item.includes('-')) {
+        let conj = item.split("-");
+        let verifica = conj.some(function(i) {
+           return i==tomPrincipal;
+        })
+        if(verifica) {
+           posicao = index;
+        }
+      } else {
+        if(item == tomPrincipal){
+          posicao = index;
+        }
+      }
+   })  
+   return posicao;   
+}
+function subirTomGeral() {
+  btDesceHabilita();
+  numeroVerificador+=1;
+  atualizaNumero(numeroVerificador);
+  if(numeroVerificador<12) {
+    btSobeHabilita();
+  } else {
+    btSobeDesabilita();
+  }
+  var tomPrincipal = pegarTomPrincipal();
+  var complemento = pegarComplementoTomPrincipal();
+  var novoTomPrincipal = subirTom(tomPrincipal);
+  novoTomPrincipal = novoTomPrincipal + complemento;
+  console.log(novoTomPrincipal);
+  setNovoTom(novoTomPrincipal);
+  modificaAcordesDaMusica('subir');
+}
+function subirTom(tomAtual, tipo='principal') {
+  var posicao = getPosicao(tomAtual);
+  var tamanho = acordes.length;
+  
+  if(posicao==tamanho-1) {
+    novaPosicao = 0;
+  } else {
+    novaPosicao = posicao + 1;
+  }
+  var novoTom = acordes[novaPosicao];
+  
+  if(novoTom.includes('-')) {
+    let conj = novoTom.split("-");
+    if(tipo=='principal') {
+      if(conj.includes(tomOriginal)) {
+        return tomOriginal;
+      } else {
+        if(numeroVerificador>0)
+          return conj[0];
+        else 
+          return conj[1]; 
+      }  
+    } else {
+      var tomPrincipal = pegarTomPrincipal();
+      if(escalas[tomPrincipal].includes(conj[1])) {
+        return conj[1];
+      } else {
+        return conj[0];
+      }
+    }
+    
+  } else {
+      return novoTom;
+  }
+}
+
+function pegarTomPrincipal() {
+   var tonalidade = document.querySelector('.dc-tonalidade').innerHTML;
+   var complemento = ''; 
+  
+    if(tonalidade.substr(1,1)=="#" || tonalidade.substr(1,1)=="b") {
+          var base = tonalidade.substr(0, 2);
+          var complemento = tonalidade.substr(2, 5);
+      } else {
+          var base = tonalidade.substr(0, 1);
+          var complemento = tonalidade.substr(1, 5);
+      }
+  return base;
+}
+function pegarComplementoTomPrincipal() {
+   var tonalidade = document.querySelector('.dc-tonalidade').innerHTML;
+   var complemento = ''; 
+  
+    if(tonalidade.substr(1,1)=="#" || tonalidade.substr(1,1)=="b") {
+          var substitui = tonalidade.substr(0, 2);
+          var complemento = tonalidade.substr(2, 5);
+      } else {
+          var substitui = tonalidade.substr(0, 1);
+          var complemento = tonalidade.substr(1, 5);
+      }
+  
+   return complemento;
+}
+	</script>
 </body>
 </html>
