@@ -114,10 +114,10 @@
         const searchInput = document.querySelector("input");
         const searchData = document.querySelector(".search-data");
 
-        searchBox.classList.add("active");
-        searchBtn.classList.add("active");
-        searchInput.classList.add("active");
-        cancelBtn.classList.add("active");
+        // searchBox.classList.add("active");
+        // searchBtn.classList.add("active");
+        // searchInput.classList.add("active");
+        // cancelBtn.classList.add("active");
         
         searchBtn.onclick =()=>{
           searchBox.classList.add("active");
@@ -151,11 +151,11 @@
 			// var password = document.getElementById("password").value;
 
 			if (username === "saul.mamani@iatec.com" || username === "samuel.cari@iatec.com" || username === "joel.bazan@iatec.com" || username === "orlando.cari@iatec.com" || username === "roberto.marca@iatec.com" || username === "franco.quevedo@iatec.com") {
-				alert("Validación exitosa");
+				// alert("Validación exitosa");
 			location.href = "Admin/index.html";
 			} else {
-			alert("Fallo la validación");
-			//location.href = "index1.html";
+			// alert("Fallo la validación");
+			location.href = "index.html";
 			}
 			// to prevent submit
 			return false;
